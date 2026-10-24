@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Listing created — ReVogue</title>
+<meta name="description" content="ReVogue: buy and sell lightly used clothes. Worn once. Loved twice.">
+<link rel="stylesheet" href="style.css">
+<script>
+(function(){
+  function show(msg){
+    try {
+      var el = document.getElementById('rw-err-banner');
+      if (!el){
+        el = document.createElement('div');
+        el.id = 'rw-err-banner';
+        el.setAttribute('role', 'alert');
+        el.style.cssText = 'position:fixed;top:0;left:0;right:0;z-index:400;background:#A2433A;color:#fff;' +
+          'font:600 13px/1.45 system-ui,Segoe UI,sans-serif;padding:10px 48px 10px 14px;' +
+          'box-shadow:0 4px 14px rgba(0,0,0,.35);white-space:pre-wrap;word-break:break-word;';
+        var m = document.createElement('span');
+        m.id = 'rw-err-banner-msg';
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.setAttribute('aria-label', 'Dismiss error');
+        btn.textContent = '\u00d7';
+        btn.style.cssText = 'position:absolute;right:4px;top:50%;transform:translateY(-50%);background:none;border:0;' +
+          'color:#fff;font-size:22px;line-height:1;cursor:pointer;padding:6px 12px;min-width:44px;min-height:44px;';
+        el.appendChild(m);
+        el.appendChild(btn);
+        (document.body || document.documentElement).appendChild(el);
+        btn.addEventListener('click', function(){ if (el.parentNode) el.parentNode.removeChild(el); });
+      }
+      var msgEl = document.getElementById('rw-err-banner-msg');
+      if (msgEl) msgEl.textContent = msg;
+    } catch(e){}
+  }
+  window.addEventListener('error', function(e){
+    var where = '';
+    if (e && e.filename){
+      var parts = String(e.filename).split(/[\\/]/);
+      where = ' — ' + parts[parts.length - 1] + ':' + (e.lineno || 0);
+    }
+    show('JS error: ' + ((e && e.message) || 'unknown') + where);
+  });
+  window.addEventListener('unhandledrejection', function(e){
+    var r = e && e.reason;
+    show('Unhandled rejection: ' + (r && r.message ? r.message : String(r)));
+  });
+})();
+</script>
+</head>
+<body>
+<a class="skip-link" id="skip-link" href="#main">Skip to main content</a>
+
+<div class="announce" role="region" aria-label="Announcement">
+  <p>Free delivery on orders above ₹999 · Worn once. Loved twice.</p>
+</div>
+
+<header class="site-header" id="site-header">
+  <div class="header-inner container">
+    <button class="hamburger" id="hamburger" type="button" data-action="toggle-drawer" aria-label="Open menu" aria-expanded="false" aria-controls="drawer">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+
+    <a class="logo" href="#/" aria-label="ReVogue home">
+      <img class="logo-img" src="logo.png" alt="" width="136" height="46">
+      <span class="logo-text">ReVogue</span>
+    </a>
+
+    <form class="search-form" id="search-form" role="search" autocomplete="off">
+      <label class="sr-only" for="search-input">Search for clothes</label>
+      <input type="search" id="search-input" name="q" placeholder="Search kurtas, dresses, brands…" aria-autocomplete="list" aria-controls="autosuggest" aria-expanded="false">
+      <button type="submit" class="search-btn" aria-label="Search">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      </button>
+      <div class="autosuggest" id="autosuggest" role="listbox" hidden></div>
+    </form>
+
+    <nav class="header-actions" aria-label="Account">
+      <a class="btn btn-primary btn-sell" href="#/sell">Sell</a>
+      <a class="icon-link" href="#/wishlist" data-action="noop" aria-label="Wishlist">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s-7-4.5-9.5-8.5C.5 9 2.5 5 6.5 5c2 0 3.5 1.2 5.5 3.2C14 6.2 15.5 5 17.5 5c4 0 6 4 4 7.5C19 16.5 12 21 12 21z"/></svg>
+        <span class="icon-label">Wishlist</span>
+        <span class="count-badge" id="wishlist-count" aria-label="0 items">0</span>
+      </a>
+      <a class="icon-link" href="#/cart" aria-label="Cart">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 4h2l2.5 12h11L21 8H7"/><circle cx="9.5" cy="20" r="1.5"/><circle cx="17.5" cy="20" r="1.5"/></svg>
+        <span class="icon-label">Cart</span>
+        <span class="count-badge" id="cart-count" aria-label="0 items">0</span>
+      </a>
+      <a class="icon-link" href="#/track" aria-label="Track order">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 7h11v10H3zM14 10h4l3 3v4h-7"/><circle cx="7" cy="18" r="2"/><circle cx="17.5" cy="18" r="2"/></svg>
+        <span class="icon-label">Track</span>
+      </a>
+    </nav>
+  </div>
+
+  <nav class="cat-bar" aria-label="Categories and collections">
+    <div class="container cat-bar-inner">
+      <a href="#/shop?cat=Women">Women</a>
+      <a href="#/shop?cat=Men">Men</a>
+      <a href="#/shop?cat=Kids">Kids</a>
+      <a href="#/shop?cat=Accessories">Accessories</a>
+      <span class="cat-sep" aria-hidden="true"></span>
+      <span class="coll-label">Collections:</span>
+      <a class="coll-link" href="#/shop?coll=Ethnic">Ethnic</a>
+      <a class="coll-link" href="#/shop?coll=Party%20Wear">Party Wear</a>
+      <a class="coll-link" href="#/shop?coll=Winter">Winter</a>
+      <a class="coll-link" href="#/shop?coll=Wedding">Wedding</a>
+      <a class="coll-link" href="#/shop?coll=Office">Office</a>
+    </div>
+  </nav>
+</header>
+
+<div class="drawer-overlay" id="drawer-overlay" data-action="close-drawer" hidden></div>
+<aside class="drawer" id="drawer" aria-label="Menu" aria-hidden="true">
+  <div class="drawer-head">
+    <span class="logo-text">Menu</span>
+    <button type="button" class="icon-btn" data-action="close-drawer" aria-label="Close menu">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+  <nav class="drawer-nav" aria-label="Mobile categories">
+    <a href="#/">Home</a>
+    <a href="#/shop?cat=Women">Women</a>
+    <a href="#/shop?cat=Men">Men</a>
+    <a href="#/shop?cat=Kids">Kids</a>
+    <a href="#/shop?cat=Accessories">Accessories</a>
+    <hr>
+    <a href="#/shop?coll=Ethnic">Collection: Ethnic</a>
+    <a href="#/shop?coll=Party%20Wear">Collection: Party Wear</a>
+    <a href="#/shop?coll=Winter">Collection: Winter</a>
+    <a href="#/shop?coll=Wedding">Collection: Wedding</a>
+    <a href="#/shop?coll=Office">Collection: Office</a>
+    <hr>
+    <a href="#/sell">Sell an item</a>
+    <a href="#/wishlist">Wishlist</a>
+    <a href="#/cart">Cart</a>
+    <a href="#/track">Track order</a>
+    <a href="#/how-it-works">How it works</a>
+    <a href="#/faq">FAQ</a>
+    <a href="#/contact">Contact</a>
+    <a href="#/about">About</a>
+  </nav>
+</aside>
+
+<main id="app" class="container" tabindex="-1"></main>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-col">
+      <h3>Buy</h3>
+      <a href="#/shop">Browse all</a>
+      <a href="#/shop?cat=Women">Women</a>
+      <a href="#/shop?cat=Men">Men</a>
+      <a href="#/shop?cat=Kids">Kids</a>
+      <a href="#/shop?cat=Accessories">Accessories</a>
+      <a href="#/track">Track order</a>
+    </div>
+    <div class="footer-col">
+      <h3>Sell</h3>
+      <a href="#/sell">Start selling</a>
+      <a href="#/manage">Manage listing</a>
+      <a href="#/how-it-works">How it works</a>
+      <a href="#/faq">Seller FAQ</a>
+    </div>
+    <div class="footer-col">
+      <h3>Help</h3>
+      <a href="#/faq">FAQ</a>
+      <a href="#/contact">Contact us</a>
+      <a href="#/policy/returns">Returns</a>
+      <a href="#/policy/safety">Safety</a>
+      <a href="#/policy/terms">Terms</a>
+      <a href="#/policy/privacy">Privacy</a>
+    </div>
+    <div class="footer-col">
+      <h3>Company</h3>
+      <a href="#/about">About ReVogue</a>
+      <a href="#/how-it-works">How it works</a>
+      <a href="#/contact">Contact</a>
+    </div>
+    <div class="footer-col footer-news">
+      <h3>Newsletter</h3>
+      <p class="muted">Get thrift drops in your inbox (demo — no email is sent).</p>
+      <form class="news-form" id="news-form">
+        <label class="sr-only" for="news-email">Email</label>
+        <input type="email" id="news-email" placeholder="you@example.com">
+        <button type="button" class="btn btn-secondary" data-action="fake-subscribe">Subscribe</button>
+      </form>
+      <div class="pay-icons" aria-label="Payment methods">
+        <span class="pay-chip">COD</span>
+        <span class="pay-chip">UPI</span>
+      </div>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <p>© ReVogue — student demo project. No real payments or shipping.</p>
+    <button type="button" class="link-btn" data-action="reset-demo">Reset demo data</button>
+  </div>
+</footer>
+
+<nav class="bottom-nav" aria-label="Primary mobile">
+  <a href="#/" data-nav="home">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>
+    <span>Home</span>
+  </a>
+  <a href="#/shop" data-nav="shop">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 7h16l-1.5 13h-13z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>
+    <span>Shop</span>
+  </a>
+  <a href="#/sell" class="bottom-sell" data-nav="sell">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+    <span>Sell</span>
+  </a>
+  <a href="#/wishlist" data-nav="wishlist">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s-7-4.5-9.5-8.5C.5 9 2.5 5 6.5 5c2 0 3.5 1.2 5.5 3.2C14 6.2 15.5 5 17.5 5c4 0 6 4 4 7.5C19 16.5 12 21 12 21z"/></svg>
+    <span>Wishlist</span>
+  </a>
+  <a href="#/cart" data-nav="cart">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 4h2l2.5 12h11L21 8H7"/><circle cx="9.5" cy="20" r="1.5"/><circle cx="17.5" cy="20" r="1.5"/></svg>
+    <span>Cart</span>
+  </a>
+</nav>
+
+<div class="toast-region" id="toast-region" aria-live="polite" aria-atomic="false"></div>
+<div class="modal-region" id="modal-region" hidden></div>
+
+<script src="data.js" defer></script>
+<script src="core.js" defer></script>
+<script src="engine.js" defer></script>
+<script src="views-shop.js" defer></script>
+<script src="views-buy.js" defer></script>
+<script src="views-sell.js" defer></script>
+<script src="views-info.js" defer></script>
+<script src="app.js" defer></script>
+</body>
+</html>
